@@ -1,0 +1,31 @@
+# OS files
+Thumbs.db
+db
+ehthumbs.db
+.DS_Store
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Node / Logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Wrangler cache
+.wrangler/
+
+

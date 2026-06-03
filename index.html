@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Éssente | Organic Sophisticate Dine-In</title>
+
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom Stylesheet -->
+  <link href="styles.css" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "var(--bg-background)",
+            "on-background": "var(--on-background)",
+            surface: "var(--surface)",
+            "on-surface": "var(--on-surface)",
+            "surface-container-lowest": "var(--surface-container-lowest)",
+            "surface-container-low": "var(--surface-container-low)",
+            "surface-container": "var(--surface-container)",
+            "surface-container-high": "var(--surface-container-high)",
+            "surface-container-highest": "var(--surface-container-highest)",
+            primary: "var(--primary)",
+            "on-primary": "var(--on-primary)",
+            "primary-container": "var(--primary-container)",
+            "on-primary-container": "var(--on-primary-container)",
+            secondary: "var(--secondary)",
+            "on-secondary": "var(--on-secondary)",
+            "secondary-container": "var(--secondary-container)",
+            "on-secondary-container": "var(--on-secondary-container)",
+            tertiary: "var(--tertiary)",
+            "on-tertiary": "var(--on-tertiary)",
+            "tertiary-container": "var(--tertiary-container)",
+            "on-tertiary-container": "var(--on-tertiary-container)",
+            "cilantro-main": "var(--cilantro-main)",
+            "cilantro-light": "var(--cilantro-light)",
+            "cilantro-pale": "var(--cilantro-pale)",
+            "on-surface-variant": "var(--on-surface-variant)",
+            outline: "var(--outline)",
+            "outline-variant": "var(--outline-variant)",
+            error: "var(--error)",
+            "on-error": "var(--on-error)",
+            "error-container": "var(--error-container)",
+            "on-error-container": "var(--on-error-container)",
+            "accent-orange": "var(--accent-orange)",
+            "accent-red": "var(--accent-red)"
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "0.75rem",
+            xl: "1rem",
+            full: "9999px"
+          },
+          spacing: {
+            "margin-desktop": "40px",
+            "gutter-desktop": "24px",
+            "component-gap": "16px",
+            "section-gap": "80px",
+            base: "8px",
+            "margin-mobile": "20px",
+            "container-max": "1400px"
+          },
+          fontFamily: {
+            display: ["Playfair Display", "serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body
+  class="bg-background text-on-surface selection:bg-cilantro-pale selection:text-cilantro-main font-body font-normal">
+
+  <!-- TopNavBar -->
+  <nav
+    class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-cilantro-pale/25 shadow-sm transition-all duration-300">
+    <div
+      class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4">
+      <a class="font-display text-2xl md:text-3xl font-semibold text-primary tracking-tight transition-colors" href="#"
+        onclick="navigateTo('menu')">Éssente</a>
+
+      <div class="hidden md:flex items-center gap-10">
+        <a id="nav-menu-link"
+          class="font-semibold text-sm tracking-wide text-cilantro-main border-b-2 border-cilantro-main pb-1 transition-all duration-300"
+          href="#" onclick="navigateTo('menu')">Menu</a>
+        <a class="font-semibold text-sm tracking-wide text-on-surface-variant hover:text-cilantro-main transition-colors duration-300"
+          href="#" onclick="showToast('Reservations are fully booked today!')">Reservations</a>
+        <a class="font-semibold text-sm tracking-wide text-on-surface-variant hover:text-cilantro-main transition-colors duration-300"
+          href="#" onclick="showToast('Our Story: Fresh garden-to-table culinary details.')">Our Story</a>
+        <a class="font-semibold text-sm tracking-wide text-on-surface-variant hover:text-cilantro-main transition-colors duration-300"
+          href="#" onclick="showToast('We cater weddings and boutique events!')">Catering</a>
+      </div>
+
+      <div class="flex items-center gap-4 md:gap-6">
+        <!-- Table indicator -->
+        <div id="table-badge"
+          class="table-badge-container hidden items-center gap-2 px-3 py-1 border border-cilantro-main/20 rounded-full bg-surface-container-low/50">
+          <span class="text-[9px] font-bold text-cilantro-main uppercase tracking-widest">Table</span>
+          <span class="font-semibold text-xs text-primary table-badge-num">14</span>
+          <button id="edit-table-btn"
+            class="material-symbols-outlined text-cilantro-main text-xs hover:bg-cilantro-pale rounded-full p-0.5 transition-colors"
+            style="font-size: 14px">edit</button>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <button onclick="toggleTheme()"
+          class="material-symbols-outlined text-on-surface-variant hover:text-cilantro-main transition-all active:scale-90 p-1.5 hover:bg-surface-container-low rounded-full"
+          id="theme-toggle-btn" title="Toggle Theme">
+          dark_mode
+        </button>
+
+        <!-- Cart Button -->
+        <button onclick="navigateTo('checkout')"
+          class="relative material-symbols-outlined text-on-surface-variant hover:text-cilantro-main transition-all active:scale-90 p-1.5 hover:bg-surface-container-low rounded-full"
+          title="View Cart">
+          shopping_bag
+          <span
+            class="cart-badge-count absolute -top-1 -right-1 bg-cilantro-light text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden shadow-sm">0</span>
+        </button>
+
+        <button onclick="showToast('Reservations are closed for this evening.')"
+          class="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-full font-semibold text-sm transition-all hover:translate-y-[-2px] active:scale-95 hover:bg-cilantro-main shadow-sm">Book
+          a Table</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Toast Notification Area -->
+  <div id="toast-container" class="fixed top-24 right-4 z-50 flex flex-col gap-3 pointer-events-none max-w-sm"></div>
+
+  <!-- Primary Page Content Area -->
+  <main class="pt-[110px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: THE MENU VIEW -->
+    <!-- ========================================== -->
+    <div id="view-menu" class="page-transition">
+      <!-- Header Section -->
+      <header class="mb-10 text-center max-w-3xl mx-auto pt-6">
+        <h1 class="font-display text-4xl md:text-5xl font-bold mb-4 text-primary tracking-tight">The Menu</h1>
+        <p class="font-body text-base md:text-lg text-on-surface-variant italic leading-relaxed">
+          A curated selection of seasonal ingredients, harvested from local organic farms and prepared with artisanal
+          precision.
+        </p>
+      </header>
+
+      <!-- Search & Filters Toolbar -->
+      <div
+        class="mb-12 max-w-4xl mx-auto bg-surface-container-lowest cart-card-shadow rounded-xl p-6 border border-outline-variant/10">
+        <div class="flex flex-col md:flex-row gap-4 items-center">
+          <!-- Search input -->
+          <div class="relative w-full">
+            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+            <input id="menu-search-input" type="text" placeholder="Search culinary items..."
+              class="bg-surface-container-low border-0 text-on-surface w-full pl-12 pr-10 py-3 rounded-lg focus:ring-2 focus:ring-cilantro-main transition-all font-body text-sm placeholder-on-surface-variant/50">
+            <button id="clear-search-btn"
+              class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-error transition-colors hidden md:block">close</button>
+          </div>
+
+          <!-- Tag Toggle Filters -->
+          <div class="flex flex-wrap gap-2 w-full justify-center md:justify-end">
+            <label
+              class="flex items-center gap-2 px-4 py-2 border border-outline-variant/20 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-semibold tracking-wide uppercase cursor-pointer hover:border-cilantro-main/30 hover:bg-surface-container transition-all">
+              <input type="checkbox" id="diet-bestseller" class="hidden">
+              <span>Bestsellers</span>
+            </label>
+            <label
+              class="flex items-center gap-2 px-4 py-2 border border-outline-variant/20 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-semibold tracking-wide uppercase cursor-pointer hover:border-cilantro-main/30 hover:bg-surface-container transition-all">
+              <input type="checkbox" id="diet-recommended" class="hidden">
+              <span>Recommended</span>
+            </label>
+            <label
+              class="flex items-center gap-2 px-4 py-2 border border-outline-variant/20 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-semibold tracking-wide uppercase cursor-pointer hover:border-cilantro-main/30 hover:bg-surface-container transition-all">
+              <input type="checkbox" id="diet-spicy" class="hidden">
+              <span>Spicy</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Sticky Bar -->
+      <div
+        class="sticky top-[78px] z-40 bg-background/90 backdrop-blur-md border-b border-outline-variant/10 -mx-margin-mobile px-margin-mobile md:-mx-margin-desktop md:px-margin-desktop py-4 mb-10 overflow-x-auto hide-scrollbar">
+        <div id="category-bar-inner" class="flex justify-start md:justify-center gap-8 md:gap-10 min-w-max px-4">
+          <!-- Categories drawn dynamically in JS -->
+        </div>
+      </div>
+
+      <!-- Dynamic Menu Listing -->
+      <div id="menu-sections-container" class="grid grid-cols-1 gap-12">
+        <!-- Rendered dynamically in JS -->
+      </div>
+
+      <!-- Persistent Floating Cart Bar -->
+      <div id="floating-cart-bar"
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-2xl z-40 hidden">
+        <!-- Rendered dynamically in JS -->
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: CART & CHECKOUT VIEW -->
+    <!-- ========================================== -->
+    <div id="view-checkout" class="page-transition page-hidden">
+      <!-- Header -->
+      <header class="mb-10 pt-6">
+        <button onclick="navigateTo('menu')"
+          class="flex items-center gap-2 text-cilantro-main hover:text-cilantro-light transition-colors mb-4 font-semibold text-sm uppercase tracking-wider">
+          <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Menu
+        </button>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-primary mb-2">Review Order</h1>
+        <p class="text-on-surface-variant font-body text-sm md:text-base">Refined flavors, organic curation, prepared
+          tableside.</p>
+      </header>
+
+      <div class="flex flex-col lg:flex-row gap-12 items-start">
+        <!-- Left Side: Items & Details -->
+        <div class="flex-grow w-full space-y-8">
+          <div id="checkout-items-list" class="space-y-4">
+            <!-- Items rendered dynamically in JS -->
+          </div>
+
+          <!-- Service Details form -->
+          <div class="bg-surface-container-lowest cart-card-shadow rounded-xl p-8 border border-outline-variant/10">
+            <h2 class="font-display text-xl md:text-2xl text-primary border-b border-outline-variant/20 pb-3 mb-6">
+              Service Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-[10px] text-on-surface-variant uppercase tracking-widest">Table Number
+                  (Required)</label>
+                <input id="table-number-input"
+                  class="bg-surface-container-low text-on-surface border border-outline-variant/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cilantro-main transition-all font-body text-sm"
+                  placeholder="Enter table number as on the QR plate" required type="text"
+                  oninput="state.tableNumber = this.value; updateTableBadges();">
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-[10px] text-on-surface-variant uppercase tracking-widest">Special
+                  Instructions</label>
+                <input id="special-instructions-input"
+                  class="bg-surface-container-low text-on-surface border border-outline-variant/30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cilantro-main transition-all font-body text-sm"
+                  placeholder="e.g. No green onions, extra spicy" type="text"
+                  oninput="state.specialInstructions = this.value;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Billing check summary -->
+        <aside id="billing-check-summary" class="w-full lg:w-[400px] lg:sticky lg:top-[120px]">
+          <!-- Rendered dynamically in JS -->
+        </aside>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: ORDER CONFIRMATION & LIVE TRACKING -->
+    <!-- ========================================== -->
+    <div id="view-tracking" class="page-transition page-hidden max-w-4xl mx-auto pt-6">
+      <div
+        class="bg-surface-container-lowest cart-card-shadow rounded-2xl p-8 md:p-12 border border-outline-variant/10 relative overflow-hidden">
+
+        <header class="text-center mb-10">
+          <div
+            class="inline-flex items-center justify-center bg-cilantro-pale text-cilantro-main w-16 h-16 rounded-full mb-6 shadow-sm">
+            <span class="material-symbols-outlined text-4xl animate-bounce">restaurant</span>
+          </div>
+          <h1 class="font-display text-3xl md:text-4xl font-bold text-primary mb-2">Order Confirmed!</h1>
+          <p class="text-on-surface-variant font-body text-sm md:text-base">Your gourmet meal is being crafted. Please
+            relax at your table.</p>
+          <div
+            class="mt-4 inline-block bg-surface-container px-4 py-1.5 rounded-full text-xs font-semibold text-primary">
+            Order Reference ID: <span id="tracking-order-id" class="text-cilantro-main font-bold">#CC-4829</span>
+          </div>
+        </header>
+
+        <!-- Live Progress Status Card -->
+        <div class="bg-background border border-outline-variant/20 rounded-xl p-6 md:p-8 mb-10">
+          <div class="flex flex-col md:flex-row gap-6 items-center mb-8 pb-6 border-b border-outline-variant/10">
+            <div
+              class="w-16 h-16 bg-cilantro-main text-on-primary rounded-full flex items-center justify-center shadow-lg pulse-soft">
+              <span id="tracking-step-icon" class="material-symbols-outlined text-3xl">restaurant_menu</span>
+            </div>
+            <div class="text-center md:text-left flex-grow">
+              <p id="tracking-progress-text"
+                class="text-[10px] text-cilantro-main uppercase tracking-widest font-bold mb-1">Prep Stage: 0% Completed
+              </p>
+              <h3 id="tracking-step-title" class="font-headline text-xl font-bold text-primary mb-1">Order Received</h3>
+              <p id="tracking-step-desc" class="text-sm text-on-surface-variant">The kitchen has verified and queued
+                your order.</p>
+            </div>
+          </div>
+
+          <!-- Progress timeline dots -->
+          <div class="relative py-4">
+            <!-- Timeline track line background -->
+            <div class="absolute top-1/2 left-0 w-full h-1 bg-surface-container-highest -translate-y-1/2 rounded-full">
+            </div>
+            <!-- Timeline track line animated progress -->
+            <div id="tracking-progress-bar"
+              class="absolute top-1/2 left-0 w-0 h-1 bg-cilantro-main -translate-y-1/2 rounded-full transition-all duration-1000 ease-out progress-bar-animated">
+            </div>
+
+            <div class="relative flex justify-between">
+              <!-- Step 1 -->
+              <div class="flex flex-col items-center gap-2">
+                <div
+                  class="tracking-dot w-8 h-8 rounded-full bg-cilantro-main text-on-primary flex items-center justify-center z-10 text-xs font-bold transition-all shadow-sm">
+                  1</div>
+                <span
+                  class="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider hidden sm:block">Queue</span>
+              </div>
+              <!-- Step 2 -->
+              <div class="flex flex-col items-center gap-2">
+                <div
+                  class="tracking-dot w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center z-10 text-xs font-bold transition-all shadow-sm">
+                  2</div>
+                <span
+                  class="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider hidden sm:block">Prep</span>
+              </div>
+              <!-- Step 3 -->
+              <div class="flex flex-col items-center gap-2">
+                <div
+                  class="tracking-dot w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center z-10 text-xs font-bold transition-all shadow-sm">
+                  3</div>
+                <span
+                  class="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider hidden sm:block">Cooking</span>
+              </div>
+              <!-- Step 4 -->
+              <div class="flex flex-col items-center gap-2">
+                <div
+                  class="tracking-dot w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center z-10 text-xs font-bold transition-all shadow-sm">
+                  4</div>
+                <span
+                  class="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider hidden sm:block">Plate</span>
+              </div>
+              <!-- Step 5 -->
+              <div class="flex flex-col items-center gap-2">
+                <div
+                  class="tracking-dot w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center z-10 text-xs font-bold transition-all shadow-sm">
+                  5</div>
+                <span
+                  class="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider hidden sm:block">Serve</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Receipt breakdown inside tracking -->
+        <div id="tracking-order-summary"
+          class="bg-surface-container-low/50 rounded-xl p-6 mb-8 border border-outline-variant/10 text-on-surface">
+          <!-- Rendered dynamically in JS -->
+        </div>
+
+        <div class="text-center pt-4">
+          <button onclick="navigateTo('menu')"
+            class="bg-primary text-on-primary px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide uppercase transition-all hover:bg-cilantro-main shadow-md hover:translate-y-[-2px] active:scale-95">
+            Back to Menu
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODAL: DYNAMIC CUSTOMIZER FOR SIZES & ADDONS -->
+  <!-- ========================================== -->
+  <div id="customizer-modal"
+    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div
+      class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl w-full max-w-xl overflow-hidden shadow-2xl transform scale-100 transition-all duration-300">
+      <header class="border-b border-outline-variant/15 p-6 flex justify-between items-start gap-4">
+        <div>
+          <h3 id="customizer-title" class="font-display text-xl md:text-2xl font-bold text-primary">Customize Item</h3>
+          <p id="customizer-subtitle" class="font-body text-xs text-on-surface-variant italic mt-1">Refined selection of
+            farm-fresh ingredients.</p>
+        </div>
+        <button onclick="closeCustomizer()"
+          class="material-symbols-outlined text-outline hover:text-error text-2xl transition-colors p-1 hover:bg-surface-container-low rounded-full">close</button>
+      </header>
+
+      <div class="p-6 space-y-6 max-h-[60vh] overflow-y-auto">
+        <!-- Size options section -->
+        <div id="customizer-size-section" class="space-y-3">
+          <h4
+            class="font-bold text-[10px] text-on-surface-variant uppercase tracking-widest border-b border-outline-variant/25 pb-2">
+            Select Portion Size</h4>
+          <div id="customizer-sizes" class="grid grid-cols-2 gap-3 pt-1">
+            <!-- Dynamic sizes -->
+          </div>
+        </div>
+
+        <!-- Add-on options section -->
+        <div id="customizer-addons-section" class="space-y-3">
+          <h4
+            class="font-bold text-[10px] text-on-surface-variant uppercase tracking-widest border-b border-outline-variant/25 pb-2">
+            Enhance with Add-Ons</h4>
+          <div id="customizer-addons" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <!-- Dynamic Add-Ons -->
+          </div>
+        </div>
+      </div>
+
+      <footer class="p-6 border-t border-outline-variant/20 flex gap-4 bg-surface-container-low">
+        <button onclick="closeCustomizer()"
+          class="flex-1 border border-outline text-on-surface-variant py-3 rounded-full font-semibold text-xs tracking-wider uppercase hover:bg-surface-container-high transition-colors">Cancel</button>
+        <button onclick="submitCustomizer()"
+          class="flex-1 bg-cilantro-main hover:bg-cilantro-light text-on-primary py-3 rounded-full font-semibold text-xs tracking-wider uppercase transition-colors shadow-sm">Add
+          to Order</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: SECURE PAYMENT GATEWAY SHEETS -->
+  <!-- ========================================== -->
+  <div id="payment-modal"
+    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div
+      class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl transform scale-100 transition-all duration-300">
+      <header class="p-6 border-b border-outline-variant/20 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-cilantro-main text-2xl">shield</span>
+          <h3 class="font-display text-lg md:text-xl font-bold text-primary">Secure Checkout</h3>
+        </div>
+        <button onclick="closePaymentModal()"
+          class="material-symbols-outlined text-outline hover:text-error text-2xl transition-colors">close</button>
+      </header>
+
+      <div class="p-6 space-y-6">
+        <div class="text-center p-4 bg-surface-container-low rounded-xl">
+          <p class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Grand Total Due</p>
+          <span id="payment-modal-amount" class="font-display text-3xl font-bold text-primary">₹0.00</span>
+        </div>
+
+        <!-- Payment selector -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-[10px] text-on-surface-variant uppercase tracking-widest mb-2">Select Method</h4>
+
+          <div class="grid grid-cols-3 gap-2">
+            <!-- GPay / UPI -->
+            <button id="pay-method-upi" onclick="selectPaymentMethod('upi')"
+              class="flex flex-col items-center justify-center p-3 rounded-xl border border-cilantro-main bg-cilantro-pale/10 transition-all gap-1 cursor-pointer">
+              <span class="material-symbols-outlined text-cilantro-main text-2xl">qr_code_2</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-on-surface">UPI / QR</span>
+            </button>
+            <!-- Card -->
+            <button id="pay-method-card" onclick="selectPaymentMethod('card')"
+              class="flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant/30 hover:border-cilantro-main transition-all gap-1 cursor-pointer">
+              <span class="material-symbols-outlined text-on-surface-variant text-2xl">credit_card</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-on-surface">Card</span>
+            </button>
+            <!-- Apple / Google Pay -->
+            <button id="pay-method-pay" onclick="selectPaymentMethod('pay')"
+              class="flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant/30 hover:border-cilantro-main transition-all gap-1 cursor-pointer">
+              <span class="material-symbols-outlined text-on-surface-variant text-2xl">fingerprint</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-on-surface">Tap Pay</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic form inputs -->
+        <div>
+          <!-- UPI payment detail options -->
+          <div id="pay-details-upi" class="space-y-4">
+            <div
+              class="flex flex-col items-center p-4 border border-dashed border-outline-variant/50 rounded-xl bg-surface">
+              <span class="material-symbols-outlined text-5xl text-outline mb-2">qr_code_scanner</span>
+              <p class="text-xs text-on-surface-variant text-center mb-1">Scan the table QR code on the payment plate.
+              </p>
+              <p class="text-[10px] text-cilantro-main font-semibold tracking-wider uppercase">Or enter UPI handle below
+              </p>
+            </div>
+            <input type="text" placeholder="name@upi"
+              class="bg-surface border border-outline-variant/30 rounded-lg px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-1 focus:ring-cilantro-main text-on-surface"
+              value="customer@ybl">
+          </div>
+
+          <!-- Card inputs -->
+          <div id="pay-details-card" class="space-y-3 hidden animate-fade">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest">Card Number</label>
+              <input type="text" placeholder="4111 2222 3333 4444"
+                class="bg-surface border border-outline-variant/30 rounded-lg px-4 py-2.5 text-sm w-full text-on-surface">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest">Expiry
+                  Date</label>
+                <input type="text" placeholder="MM/YY"
+                  class="bg-surface border border-outline-variant/30 rounded-lg px-4 py-2.5 text-sm text-center text-on-surface">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest">CVV</label>
+                <input type="password" placeholder="•••"
+                  class="bg-surface border border-outline-variant/30 rounded-lg px-4 py-2.5 text-sm text-center text-on-surface">
+              </div>
+            </div>
+          </div>
+
+          <!-- Tap Pay / biometric detail options -->
+          <div id="pay-details-pay"
+            class="flex flex-col items-center justify-center p-6 border border-dashed border-outline-variant/50 rounded-xl bg-surface hidden">
+            <span class="material-symbols-outlined text-6xl text-cilantro-main animate-pulse mb-3">contactless</span>
+            <p class="text-xs text-on-surface-variant text-center font-medium">Place your thumb or hold phone near the
+              payment plate to complete Tap & Pay transaction.</p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="p-6 border-t border-outline-variant/20 flex gap-4 bg-surface-container-low">
+        <button onclick="closePaymentModal()"
+          class="flex-1 border border-outline text-on-surface-variant py-3 rounded-full font-semibold text-xs tracking-wider uppercase hover:bg-surface-container-high transition-colors">Cancel</button>
+        <button id="mock-pay-submit-btn" onclick="processPayment()"
+          class="flex-1 bg-cilantro-main hover:bg-cilantro-light text-on-primary py-3 rounded-full font-semibold text-xs tracking-wider uppercase transition-colors shadow-sm">Pay
+          Securely</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer
+    class="w-full pt-section-gap pb-10 bg-surface-container-lowest dark:bg-primary-container border-t border-outline-variant/30 transition-colors duration-300">
+    <div class="flex flex-col items-center justify-center gap-component-gap px-margin-desktop text-center">
+      <span class="font-display text-2xl text-primary mb-4 tracking-tight">Éssente</span>
+      <div class="flex flex-wrap justify-center gap-8 mb-6">
+        <a class="font-body text-xs md:text-sm text-on-surface-variant hover:text-cilantro-main underline decoration-cilantro-pale transition-all"
+          href="#" onclick="showToast('Éssente runs a 100% solar powered kitchen.')">Sustainability</a>
+        <a class="font-body text-xs md:text-sm text-on-surface-variant hover:text-cilantro-main underline decoration-cilantro-pale transition-all"
+          href="#" onclick="showToast('Join our culinary team! Send resumes to hire@cafecilantro.in')">Careers</a>
+        <a class="font-body text-xs md:text-sm text-on-surface-variant hover:text-cilantro-main underline decoration-cilantro-pale transition-all"
+          href="#" onclick="showToast('Your privacy is protected by tableside encryption.')">Privacy Policy</a>
+        <a class="font-body text-xs md:text-sm text-on-surface-variant hover:text-cilantro-main underline decoration-cilantro-pale transition-all"
+          href="#" onclick="showToast('Support hotline: info@cafecilantro.in')">Contact</a>
+      </div>
+      <p class="font-body text-[11px] md:text-xs text-on-surface opacity-80">
+        © 2026 Éssente. An Organic Culinary Experience.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Include Menu Database -->
+  <script src="menu_db.js"></script>
+  <!-- Include SPA Logic -->
+  <script src="app.js"></script>
+</body>
+
+</html>

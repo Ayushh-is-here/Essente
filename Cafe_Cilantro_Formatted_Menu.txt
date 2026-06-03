@@ -1,0 +1,251 @@
+[Pizza]
+Margherita Pizza - 150 / 180
+Double Cheese Pizza - 180
+Golden Corn Pizza - 160
+Veggie Pizza - 160
+Indian Style Pizza - 170
+Mushroom Pizza - 180
+Farmhouse Pizza - 180
+Texas Pizza - 180
+Schezwan Pizza - 190
+Paneer Pizza - 190
+Paneer Makhani Pizza - 200
+Barbecue Paneer Pizza - 200
+Tandoori Paneer Pizza - 200
+Peri Peri Paneer Pizza - 200
+Classic Pesto Pizza - 220
+Cilantro Special Loaded Pizza - 230
+Cheese Burst Pizza - 300
+
+[Pasta]
+Alfredo Pasta - 200
+Arrabiata Pasta - 200
+Mix Sauce Pasta - 200
+Curry Pasta - 200
+Lemon Butter Garlic - 200
+Penne Pesto - 220
+Makhani Pasta - 220
+Schezwan Pasta - 220
+Peri-Peri Pasta - 220
+Spaghetti Aglio e Olio - 240
+Creamy Cheesy Alfredo - 240
+
+[Baked Pasta]
+Mac n Cheese - 200
+Baked Alfredo - 220
+Primavera Pasta - 240
+Baked Spaghetti - 250
+Lasagna Pasta - 250
+
+[Sandwiches]
+Bread Butter - 60
+Chutney Sandwich - 50
+Cheese Chutney Sandwich - 70
+Plain Veg Sandwich - 60
+Veg Cheese Sandwich - 80
+Cole Slaw Sandwich - 80
+Creamy Corn Capsicum Cheese - 80
+Veg Mayo Sandwich - 80
+Paneer Corn Capsicum Sandwich - 90
+Grilled Veg Sandwich - 70
+Grilled Veg Cheese - 100
+Only Cheese Grill - 100
+Bombay Toast - 100
+Chocolate Grill - 100
+Pahadi Cheese Sandwich - 110
+Aloo Cheese Toast - 110
+Crispy Potato Cheese Crunch - 120
+Chili Cheese Sandwich - 120
+Paneer Makhani Sandwich - 120
+Mexican Cheese Grilled - 120
+Kimchi Cheese Sandwich - 130
+Tandoori Paneer Sandwich - 130
+Paneer Cheese Sandwich - 130
+Crunchy Spicy Paneer Cheese - 150
+Club Sandwich - 160
+Chef's Special Sandwich - 160
+Subway Veg Sandwich - 150
+Subway Paneer Sandwich - 180
+Garlic Bread - 90
+Garlic Cheese Bread - 120
+Cheese Chili Toast - 130
+Bruschetta Tomato - 140
+Bruschetta Mushroom - 140
+Bread Pizza Sandwich - 150
+Pesto Cheese Crostini - 150
+Paneer Cheese Toast - 150
+
+[Maggi & Noodles]
+Plain Maggi - 80
+Masala Maggi - 80
+Schezwan Maggi - 100
+Cheese Maggi - 100
+Masala Noodles - 150
+Hakka Noodles - 150
+Schezwan Noodles - 160
+Lemon Coriander Noodles - 160
+Singapore Noodles - 170
+Pad Thai Noodles - 200
+
+[Burgers]
+Aloo Tikki Burger - 60
+Veg Burger - 70
+Veg Cheese Burger - 90
+Spicy Veg Burger - 80
+Jumbo Veg Burger - 80
+Jumbo Veg Cheese - 100
+Mushroom Burger - 80
+Mexican Cheese Burger - 100
+Schezwan Cheese Burger - 100
+Tandoori Veg Cheese Burger - 100
+Cheese Corn Burger - 120
+Maharaja Burger - 120
+Maharaja Cheese Burger - 140
+Paneer Crunchy Burger - 130
+Paneer Crunchy Cheese Burger - 150
+
+[Hot Dogs]
+Veg Hot Dog - 70
+Veg Cheese Hot Dog - 90
+Cheese Corn Hot Dog - 100
+Mexican Cheese Hot Dog - 100
+Paneer Cheese Hot Dog - 120
+
+[Fries]
+French Fries - 80
+Mayo Fries - 90
+Masala Fries - 100
+Chili Garlic Fries - 100
+Peri-Peri Fries - 100
+Peri-Peri Cheese Fries - 120
+Schezwan Fries - 100
+Tandoori Fries - 100
+Popcorn Fries - 100
+Cheese Fries - 110
+Melted Cheese Fries - 120
+
+[Rolls & Frankies]
+Veg Rolls - 100
+Schezwan Roll - 120
+Mexican Roll - 120
+Spicy Paneer Roll - 120
+Paneer Corn Roll - 120
+Paneer Makhani Roll - 120
+Kadai Paneer Roll - 120
+Soya Paneer Roll - 130
+Tandoori Paneer Roll - 130
+Veg Cheese Frankie - 120
+Cheese Corn Frankie - 130
+Schezwan Cheese Frankie - 130
+Paneer Cheese Frankie - 150
+
+[Momos]
+Mix Veg Momos - 90
+Paneer Momos - 100
+Cheese Corn Momos - 110
+
+[Rice Meals]
+Veg Pulao - 130
+Paneer Pulao - 150
+Veg Biryani - 160
+Paneer Biryani - 180
+Veg Fried Rice - 150
+Schezwan Fried Rice - 160
+Paneer Fried Rice - 180
+Fusion Masti - 180
+
+[Appetizers]
+Veggie Nuggets (8 pcs) - 90
+Aloo Tikki (3 nos) - 90
+Veggie Fingers (6 pcs) - 90
+Cheesy Pizza Sticks (6 nos) - 120
+Cheese Balls (8 pcs) - 120
+Cheese Corn Nuggets (8 pcs) - 120
+Veg Manchurian (8 pcs) - 140
+Spring Rolls (6 pcs) - 140
+Honey Chili Potatoes - 160
+Paneer Popcorn - 200
+
+[International Delicacies]
+Cheesy Quesadillas - 150
+Chimichangas - 170
+Veg Au-gratin - 220
+Paneer Chilli - 220
+Cheesy Veg Enchiladas - 230
+Creamy Mushroom - 260
+Kung Pao Paneer - 260
+Paneer Teriyaki - 260
+Paneer Stroganoff - 260
+Paneer Shashlik - 260
+Tangy Pesto Quinoa Balls (4 pcs) - 220
+
+[Beverages]
+Mineral Water - 10 / 20
+Cold Drinks (Glass) - 20
+Cold Drinks (Plastic) - 25
+Black Coffee - 20
+Hot Coffee - 35
+Hot Milk - 40
+Thick Cold Coffee - 50
+Thin Cold Coffee - 60
+Cold Coffee with Crush - 60 / 70
+Cold Coffee with Ice-cream - 70 / 80
+Cold Coffee with Cream - 70 / 80
+Cold Coffee with Crush & Ice-cream - 80 / 90
+Lemon Ice Tea - 50
+Peach Lemon Iced Tea - 60
+Hot Chocolate - 80
+CAD B - 100
+
+[Milkshakes]
+Vanilla Milkshake - 70
+Strawberry Milkshake - 80
+Chocolate Milkshake - 90
+Butterscotch Milkshake - 90
+Oreo Shake - 100
+Brownie Shake - 100
+Kit-Kat Milkshake - 120
+Tiramisu Milkshake - 120
+
+[Mocktails & Coolers]
+Fresh Lime Soda (Salted) - 50
+Lemonade (Sweet) - 60
+Cool Blue - 70
+Virgin Mojito - 70
+Watermelon Cooler - 70
+Chili Guava Cooler - 70
+Apple Green Cooler - 70
+Melon Mojito - 80
+Blue Mojito - 80
+Green Apple Mojito - 80
+
+[Frappes]
+Caramel Frappe - 100
+Mocha Frappe - 100
+Coffee Frappe - 100
+Thandai Frappe - 100
+
+[Desserts]
+Chocolate Mousse - 60
+Lava Cake - 70
+Chocolate Brownie - 70
+Brownie with Ice cream - 100
+Tiramisu - 100
+Sizzling Brownie - 130
+
+[Combo Meals]
+Burger Combo - 180
+Hot Dog Combo - 180
+Sandwich Combo - 180
+Roll Combo - 210
+Pasta Combo - 240
+Pizza Combo - 260
+
+[Add-Ons]
+Ketchup - 10
+Mayonnaise - 10
+Sprinkler - 10
+Regular Cheese - 20
+Pizza Cheese - 40
+Cheese Dip - 20
+Kimchi - 20
